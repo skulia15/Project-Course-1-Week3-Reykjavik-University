@@ -120,3 +120,12 @@ void MainWindow::on_button_scientists_to_table_clicked()
        qDebug() << QDate::currentDate();
     }
 }
+
+void MainWindow::on_Input_Filter_Scientists_textChanged(const QString &arg1)
+{
+    ScientistService scientistService;
+    string inputFilter = ui->Input_Filter_Scientists->text().toStdString();
+
+    vector<Scientist>scientists = scientistService.searchForScientists(inputFilter);
+    displayScientists(scientists);
+}
