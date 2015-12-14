@@ -83,15 +83,28 @@ void MainWindow::on_button_scientists_to_table_clicked()
 {
     ScientistService scientistService;
 
+    ui->label_error_name->setText("");
+    ui->label_error_sex->setText("");
+    ui->label_error_YoB->setText("");
+
     QString name = ui->Input_Scientist_Name->text();
     QString sex = ui->input_sex->text();
     QString YoB = ui->input_year_of_birth->text();
     QString YoD = ui->input_year_of_death->text();
 
     if (name.isEmpty()){
-        //error message
+        ui->label_error_name->setText("The scientist must have a name!");
         return;
     }
+    if (sex.isEmpty()){
+        ui->label_error_sex->setText("The scientist must have a sex!");
+        return;
+    }
+    if (YoB.isEmpty()){
+        ui->label_error_YoB->setText("The scientist must have been born!");
+        return;
+    }
+
 
 
     bool success = scientistService.addScientist(Scientist(name.toStdString(), utils::stringToSex(sex.toStdString()), YoB.toInt(), YoD.toInt())); //, sex.toStdString(), YoB.toInt(), YoD.toInt());
