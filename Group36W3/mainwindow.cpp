@@ -41,6 +41,7 @@ void MainWindow::displayScientists(std::vector<Scientist> scientists)//Sverrir, 
 {
 
         //ui->table_showAllScientists->clear();
+        ui->table_showAllScientists->hideColumn(0);
         ui->table_showAllScientists->setRowCount(scientists.size());
         ui->table_showAllScientists->setColumnCount(5);
 
@@ -104,8 +105,6 @@ void MainWindow::on_button_scientists_to_table_clicked()
         ui->label_error_YoB->setText("The scientist must have been born!");
         return;
     }
-
-
 
     bool success = scientistService.addScientist(Scientist(name.toStdString(), utils::stringToSex(sex.toStdString()), YoB.toInt(), YoD.toInt())); //, sex.toStdString(), YoB.toInt(), YoD.toInt());
 

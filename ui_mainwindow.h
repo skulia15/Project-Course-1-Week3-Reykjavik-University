@@ -79,6 +79,8 @@ public:
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
         table_showAllScientists->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         table_showAllScientists->setObjectName(QStringLiteral("table_showAllScientists"));
+        table_showAllScientists->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        table_showAllScientists->setSelectionBehavior(QAbstractItemView::SelectColumns);
 
         verticalLayout->addWidget(table_showAllScientists);
 
